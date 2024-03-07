@@ -1,0 +1,366 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 8em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://D:\Users\Public\Documents\Altium\AD20\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">10/23/2023</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">11:00:04 PM</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:01</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///C:\Users\hayth\OneDrive\Documents\work\LCD controller\LCD Controller\LCD Controller PCB.PcbDoc" class="file"><acronym title="C:\Users\hayth\OneDrive\Documents\work\LCD controller\LCD Controller\LCD Controller PCB.PcbDoc">C:\Users\hayth\OneDrive\Documents\work\LCD controller\LCD Controller\LCD Controller PCB.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">10</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+</table>
+</td>
+</table><a name="IDWXZBYFZAZUSCZMBTTITZMZM5FKNOVEJCDLXAHKWGR4NR3YWKILC"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDBT1GYWTUGM0FCA2MFTP5G3OAACAYF5431SSUSHI1G3CQ5GSWUV5J">10 Net Ties failed verification</a></td>
+<td class="column2">10</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">10</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDR2DI10MUGEYJKODRRWSULVUFWOOVCPAODVZHLKM1JPZGAMRHVMMG">Clearance Constraint (Gap=0mm) (Footprint = 'CHEV'),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDJOUNBHRFH4YZI1AVNBZ2PM3H5BEDJC1GXBN4A1OKGEETM5RQ2LOO">Clearance Constraint (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID3JPX4BOSD4WDPDLQLB1LCMYRAK0SKAKUOBP4ZHOTKFBS3PP43E2H">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDB3Q2CZPJSH5OILHIRDIK5QONJGVB2L4KAKO0FHLGB10DWLBJ4NVL">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDE4FGRQWGFBRZBMDT1INA2LNQKFRN5DU1STPHZTF2BQSN5T0A3EHK">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDEQ01IAQ3VM1ZBDT04LP3GQAHQI00LZVGR40NQOMBVSN3WK1AQ1MK">Width Constraint (Min=0.2mm) (Max=5mm) (Preferred=0.25mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDVMPDCSHGQ2D1PUIV4XYRXPAIXLTLK1IRRFJEMRKR4I3TER4P35E">Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDYLBURI4Z5UPVKBKPXGWK0XYREBWRHEFSP2AIAKDDKTSSZF2BBICL">Hole Size Constraint (Min=0.025mm) (Max=4mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID3THZQR04YNR2PS4FQREAG3ZKLBF4Q2CCIGQBS0JMMCOWQN1EWFZP">Hole To Hole Clearance (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAKPDPOQI30KSEVU4OZLMA33FGZIJEYKBFHQ2JH3ACCXSB4LZ0NI">Minimum Solder Mask Sliver (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDKVEYDS0ZQRIQEEMUP0XNQC5YNK3DBW5POMRPMIEYRSSMVEMSZBKG">Silk To Solder Mask (Clearance=0mm) (IsPad),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDLALF5IXIO24CHV5JOPVOCPJNMGF1XOOQXAR02WYA1ESOWXJD42K">Silk to Silk (Clearance=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDDGQBLSSBBMAXNPVAWMBPTSOXOHRRZNBDEVQFCQP03AX5KMQ2ZBYE">Net Antennae (Tolerance=0mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDUV3WZ02XUL5YKKVU43C5JR2EPDRFPAALX1RPQXODSYIE2BCHEQSG">Height Constraint (Min=0mm) (Max=50mm) (Prefered=12.7mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><a name="IDPQI34NNJ3YPRHCVN0LML1W4E2CNEHF5DZ3OC3IGCYHFDOW3W4WE"><h2>Warnings</h2></a><a name="IDBT1GYWTUGM0FCA2MFTP5G3OAACAYF5431SSUSHI1G3CQ5GSWUV5J"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="warning">10 Net Ties failed verification</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\hayth\OneDrive\Documents\work\LCD controller\LCD Controller\LCD Controller PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2855.429mil|Location2.X=3074.571mil|Location1.Y=3045.429mil|Location2.Y=3384.134mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\hayth\OneDrive\Documents\work\LCD controller\LCD Controller\LCD Controller PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2855.429mil|Location2.X=3074.571mil|Location1.Y=3045.429mil|Location2.Y=3384.134mil|Absolute=True">SMT Small Component CS10-CHEVRON (49.384mm,59.245mm) on Bottom Layer</acronym></a>, SMT Small Component CS10-CHEVRON (49.384mm,59.245mm) on Bottom Layer, has isolated copper</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\hayth\OneDrive\Documents\work\LCD controller\LCD Controller\LCD Controller PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3012.343mil|Location2.X=3221.899mil|Location1.Y=3078.101mil|Location2.Y=3384.134mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\hayth\OneDrive\Documents\work\LCD controller\LCD Controller\LCD Controller PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3012.343mil|Location2.X=3221.899mil|Location1.Y=3078.101mil|Location2.Y=3384.134mil|Absolute=True">SMT Small Component CS9-CHEVRON (52.051mm,59.245mm) on Bottom Layer</acronym></a>, SMT Small Component CS9-CHEVRON (52.051mm,59.245mm) on Bottom Layer, has isolated copper</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\hayth\OneDrive\Documents\work\LCD controller\LCD Controller\LCD Controller PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3117.343mil|Location2.X=3371.899mil|Location1.Y=3128.101mil|Location2.Y=3384.134mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\hayth\OneDrive\Documents\work\LCD controller\LCD Controller\LCD Controller PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3117.343mil|Location2.X=3371.899mil|Location1.Y=3128.101mil|Location2.Y=3384.134mil|Absolute=True">SMT Small Component CS8-CHEVRON (54.718mm,59.245mm) on Bottom Layer</acronym></a>, SMT Small Component CS8-CHEVRON (54.718mm,59.245mm) on Bottom Layer, has isolated copper</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\hayth\OneDrive\Documents\work\LCD controller\LCD Controller\LCD Controller PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3558.091mil|Location2.X=3834.974mil|Location1.Y=3703.327mil|Location2.Y=3806.673mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\hayth\OneDrive\Documents\work\LCD controller\LCD Controller\LCD Controller PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3558.091mil|Location2.X=3834.974mil|Location1.Y=3703.327mil|Location2.Y=3806.673mil|Absolute=True">SMT Small Component CS7-CHEVRON (65.913mm,69.977mm) on Bottom Layer</acronym></a>, SMT Small Component CS7-CHEVRON (65.913mm,69.977mm) on Bottom Layer, has isolated copper</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\hayth\OneDrive\Documents\work\LCD controller\LCD Controller\LCD Controller PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3270.026mil|Location2.X=3536.909mil|Location1.Y=3703.327mil|Location2.Y=3806.673mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\hayth\OneDrive\Documents\work\LCD controller\LCD Controller\LCD Controller PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3270.026mil|Location2.X=3536.909mil|Location1.Y=3703.327mil|Location2.Y=3806.673mil|Absolute=True">SMT Small Component CS6-CHEVRON (63.5mm,69.977mm) on Bottom Layer</acronym></a>, SMT Small Component CS6-CHEVRON (63.5mm,69.977mm) on Bottom Layer, has isolated copper</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\hayth\OneDrive\Documents\work\LCD controller\LCD Controller\LCD Controller PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3518.327mil|Location2.X=3829.974mil|Location1.Y=3920.01mil|Location2.Y=3999.99mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\hayth\OneDrive\Documents\work\LCD controller\LCD Controller\LCD Controller PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3518.327mil|Location2.X=3829.974mil|Location1.Y=3920.01mil|Location2.Y=3999.99mil|Absolute=True">SMT Small Component CS5-CHEVRON (65.278mm,75.184mm) on Bottom Layer</acronym></a>, SMT Small Component CS5-CHEVRON (65.278mm,75.184mm) on Bottom Layer, has isolated copper</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\hayth\OneDrive\Documents\work\LCD controller\LCD Controller\LCD Controller PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3518.327mil|Location2.X=3834.974mil|Location1.Y=4023.091mil|Location2.Y=4104.99mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\hayth\OneDrive\Documents\work\LCD controller\LCD Controller\LCD Controller PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3518.327mil|Location2.X=3834.974mil|Location1.Y=4023.091mil|Location2.Y=4104.99mil|Absolute=True">SMT Small Component CS4-CHEVRON (65.278mm,77.724mm) on Bottom Layer</acronym></a>, SMT Small Component CS4-CHEVRON (65.278mm,77.724mm) on Bottom Layer, has isolated copper</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\hayth\OneDrive\Documents\work\LCD controller\LCD Controller\LCD Controller PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3513.327mil|Location2.X=3834.974mil|Location1.Y=4153.091mil|Location2.Y=4239.99mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\hayth\OneDrive\Documents\work\LCD controller\LCD Controller\LCD Controller PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3513.327mil|Location2.X=3834.974mil|Location1.Y=4153.091mil|Location2.Y=4239.99mil|Absolute=True">SMT Small Component CS3-CHEVRON (65.151mm,81.026mm) on Bottom Layer</acronym></a>, SMT Small Component CS3-CHEVRON (65.151mm,81.026mm) on Bottom Layer, has isolated copper</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\hayth\OneDrive\Documents\work\LCD controller\LCD Controller\LCD Controller PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3258.101mil|Location2.X=3441.899mil|Location1.Y=4073.101mil|Location2.Y=4361.673mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\hayth\OneDrive\Documents\work\LCD controller\LCD Controller\LCD Controller PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3258.101mil|Location2.X=3441.899mil|Location1.Y=4073.101mil|Location2.Y=4361.673mil|Absolute=True">SMT Small Component CS2-CHEVRON (58.547mm,84.074mm) on Bottom Layer</acronym></a>, SMT Small Component CS2-CHEVRON (58.547mm,84.074mm) on Bottom Layer, has isolated copper</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\hayth\OneDrive\Documents\work\LCD controller\LCD Controller\LCD Controller PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3513.327mil|Location2.X=3824.977mil|Location1.Y=4240.01mil|Location2.Y=4319.99mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\hayth\OneDrive\Documents\work\LCD controller\LCD Controller\LCD Controller PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3513.327mil|Location2.X=3824.977mil|Location1.Y=4240.01mil|Location2.Y=4319.99mil|Absolute=True">SMT Small Component CS1-CHEVRON (65.151mm,83.312mm) on Bottom Layer</acronym></a>, SMT Small Component CS1-CHEVRON (65.151mm,83.312mm) on Bottom Layer, has isolated copper</td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>

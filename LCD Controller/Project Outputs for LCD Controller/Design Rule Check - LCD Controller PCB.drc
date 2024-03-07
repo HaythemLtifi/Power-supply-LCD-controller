@@ -1,0 +1,63 @@
+Protel Design System Design Rule Check
+PCB File : C:\Users\hayth\OneDrive\Documents\work\LCD controller\LCD Controller\LCD Controller PCB.PcbDoc
+Date     : 10/23/2023
+Time     : 11:00:04 PM
+
+WARNING: 10 Net Ties failed verification
+   SMT Small Component CS10-CHEVRON (49.384mm,59.245mm) on Bottom Layer, SMT Small Component CS10-CHEVRON (49.384mm,59.245mm) on Bottom Layer, has isolated copper
+   SMT Small Component CS9-CHEVRON (52.051mm,59.245mm) on Bottom Layer, SMT Small Component CS9-CHEVRON (52.051mm,59.245mm) on Bottom Layer, has isolated copper
+   SMT Small Component CS8-CHEVRON (54.718mm,59.245mm) on Bottom Layer, SMT Small Component CS8-CHEVRON (54.718mm,59.245mm) on Bottom Layer, has isolated copper
+   SMT Small Component CS7-CHEVRON (65.913mm,69.977mm) on Bottom Layer, SMT Small Component CS7-CHEVRON (65.913mm,69.977mm) on Bottom Layer, has isolated copper
+   SMT Small Component CS6-CHEVRON (63.5mm,69.977mm) on Bottom Layer, SMT Small Component CS6-CHEVRON (63.5mm,69.977mm) on Bottom Layer, has isolated copper
+   SMT Small Component CS5-CHEVRON (65.278mm,75.184mm) on Bottom Layer, SMT Small Component CS5-CHEVRON (65.278mm,75.184mm) on Bottom Layer, has isolated copper
+   SMT Small Component CS4-CHEVRON (65.278mm,77.724mm) on Bottom Layer, SMT Small Component CS4-CHEVRON (65.278mm,77.724mm) on Bottom Layer, has isolated copper
+   SMT Small Component CS3-CHEVRON (65.151mm,81.026mm) on Bottom Layer, SMT Small Component CS3-CHEVRON (65.151mm,81.026mm) on Bottom Layer, has isolated copper
+   SMT Small Component CS2-CHEVRON (58.547mm,84.074mm) on Bottom Layer, SMT Small Component CS2-CHEVRON (58.547mm,84.074mm) on Bottom Layer, has isolated copper
+   SMT Small Component CS1-CHEVRON (65.151mm,83.312mm) on Bottom Layer, SMT Small Component CS1-CHEVRON (65.151mm,83.312mm) on Bottom Layer, has isolated copper
+
+Processing Rule : Clearance Constraint (Gap=0mm) (Footprint = 'CHEV'),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=0.254mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
+Rule Violations :0
+
+Processing Rule : Un-Routed Net Constraint ( (All) )
+Rule Violations :0
+
+Processing Rule : Modified Polygon (Allow modified: No), (Allow shelved: No)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=0.2mm) (Max=5mm) (Preferred=0.25mm) (All)
+Rule Violations :0
+
+Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)
+Rule Violations :0
+
+Processing Rule : Hole Size Constraint (Min=0.025mm) (Max=4mm) (All)
+Rule Violations :0
+
+Processing Rule : Hole To Hole Clearance (Gap=0.254mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Minimum Solder Mask Sliver (Gap=0.254mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Silk To Solder Mask (Clearance=0mm) (IsPad),(All)
+Rule Violations :0
+
+Processing Rule : Silk to Silk (Clearance=0.254mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Net Antennae (Tolerance=0mm) (All)
+Rule Violations :0
+
+Processing Rule : Height Constraint (Min=0mm) (Max=50mm) (Prefered=12.7mm) (All)
+Rule Violations :0
+
+
+Violations Detected : 0
+Waived Violations : 0
+Time Elapsed        : 00:00:01
